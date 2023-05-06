@@ -1,0 +1,1 @@
+{"version":3,"file":"index.mongo.js","sourceRoot":"","sources":["../../../../frameworks/database/mongo/index.mongo.ts"],"names":[],"mappings":";;;;;AAAA,iGAAoE;AACpE,2FAAyD;AAGzD,MAAM,OAAO,GAAG,GAAE,EAAE;IAElB,OAAO,MAAM,CAAC,MAAM,CAAC;QACnB,eAAe,EAAG,GAAG,EAAE,CAAC,8BAAe;QACvC,OAAO,EAAE,GAAE,EAAE,CAAA,IAAA,4BAAS,GAAE;KAEzB,CAAC,CAAC;AAGL,CAAC,CAAC;AAEF,kBAAe,OAAO,CAAC"}

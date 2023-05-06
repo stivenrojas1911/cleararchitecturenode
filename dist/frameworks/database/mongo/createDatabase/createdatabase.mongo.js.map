@@ -1,0 +1,1 @@
+{"version":3,"file":"createdatabase.mongo.js","sourceRoot":"","sources":["../../../../../frameworks/database/mongo/createDatabase/createdatabase.mongo.ts"],"names":[],"mappings":";;AAEA,MAAM,eAAe,GAAG,KAAK,EACzB,OAGuC,EACvC,GAAG,GAAG,gCAAgC,EACF,EAAE;IACtC,MAAM,EAAE,GAAG,MAAM,OAAO,CAAC,GAAG,CAAC,CAAC;IAC9B,OAAO,EAAE,CAAC;AACZ,CAAC,CAAC;AACF,kBAAe,eAAe,CAAC"}
