@@ -28,9 +28,12 @@ const callInsertManyCoursesMongo = async () => {
     console.log("INSERT  COURSES: ", insertCoursesResult);
 };
 const callFindAllCoursesMysql = async () => {
-    const mySqlObj = (0, index_mysql_1.default)().connectDatabase();
-    const objConn = await mySqlObj.getMysqlConn();
-    console.log("MYSQL OBJ: ", objConn);
+    const allCoursesfnc = (0, index_mysql_1.default)().courses().findAllCourses();
+    const allCourses = await allCoursesfnc();
+    console.log("all courses: ", allCourses);
+    //const mySqlObj = mysqlDB().connectDatabase();
+    //const objConn= await mySqlObj.getMysqlConn();
+    //console.log("MYSQL OBJ: ", objConn);
 };
 //callInsertManyCoursesMongo();
 //callFindAllCoursesMongo();
