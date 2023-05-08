@@ -8,12 +8,18 @@ const findAllCourses = async () => {
     try {
         const mySqlObj = (0, index_mysql_1.default)().connectDatabase();
         const objConn = await mySqlObj.getMysqlConn();
-        objConn.query("SELECT * FROM courses", function (err, result, fields) {
-            if (err)
-                throw err;
-            console.log(result);
-            return result;
-        });
+        const getAllTheCourses = async () => {
+            return new Promise((resolve, reject) => {
+                objConn.query("SELECT * FROM courses", function (err, result, fields) {
+                    if (err)
+                        throw err;
+                    console.log("result: ", result);
+                    resolve(result);
+                });
+            });
+        };
+        const allTheCourses = await getAllTheCourses();
+        return allTheCourses;
     }
     catch (err) {
         return false;

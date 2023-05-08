@@ -1,4 +1,6 @@
+import databaseBuilder from "../../frameworks/database/index.database";
 
+const databaseObj = databaseBuilder().getDatabase("mysql");
 
 const checkStudentAge = (bornDay:string,
                          legalAge:number):boolean=>{
@@ -19,3 +21,5 @@ const saveStudent =():boolean=>{
     
 
 }
+
+ 

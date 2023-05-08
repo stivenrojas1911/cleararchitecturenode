@@ -5,10 +5,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const index_mysql_1 = __importDefault(require("../frameworks/database/mysql/index.mysql"));
 const index_mongo_1 = __importDefault(require("../frameworks/database/mongo/index.mongo"));
+const index_database_1 = __importDefault(require("../frameworks/database/index.database"));
 const callFindAllCoursesMongo = async () => {
-    const findAllCourses = (0, index_mongo_1.default)().courses().findAllCourses();
+    const databaseObj = (0, index_database_1.default)().getDatabase("mongo");
+    const findAllCourses = databaseObj().courses().findAllCourses();
     const allCourses = await findAllCourses();
-    console.log("ALL THE COURSES: ", allCourses);
+    console.log("*all courses:", allCourses);
+    if (allCourses !== false) {
+        allCourses.map((course) => {
+            console.log("course name: ", course.name);
+        });
+    }
+};
+const callFindAllCoursesMysql = async () => {
+    const allCoursesfnc = (0, index_mysql_1.default)().courses().findAllCourses();
+    const allCourses = await allCoursesfnc();
+    console.log("all courses: ", allCourses);
 };
 const callInsertManyCoursesMongo = async () => {
     const courseData = [
@@ -27,46 +39,7 @@ const callInsertManyCoursesMongo = async () => {
     const insertCoursesResult = await insertManyCourses(courseData);
     console.log("INSERT  COURSES: ", insertCoursesResult);
 };
-const callFindAllCoursesMysql = async () => {
-    const allCoursesfnc = (0, index_mysql_1.default)().courses().findAllCourses();
-    const allCourses = await allCoursesfnc();
-    console.log("all courses: ", allCourses);
-    //const mySqlObj = mysqlDB().connectDatabase();
-    //const objConn= await mySqlObj.getMysqlConn();
-    //console.log("MYSQL OBJ: ", objConn);
-};
 //callInsertManyCoursesMongo();
-//callFindAllCoursesMongo();
-callFindAllCoursesMysql();
-/**
-
-const connectMysql = async () => {
-  const respConnFnc = await connectDatabase(
-    "localhost",
-    "root",
-    "",
-    "high_school",
-    "3306"
-  );
-
-  const objConn = respConnFnc.createConnObj();
-
-  console.log("objConn: ", objConn);
-
-  objConn.connect(function (err) {
-    if (err) throw err;
-    console.log("Connected!");
-  });
-
-  objConn.pause();
-
-
-  objConn.query("SELECT * FROM persons", function (err, result) {
-    if (err) throw err;
-    console.log("*Result: " + result);
-  });
-};
-
-//connectMysql();
- */ 
+//callFindAllCoursesMysql()
+callFindAllCoursesMongo();
 //# sourceMappingURL=index.js.map
